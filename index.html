@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>FH5 Companion App</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+  <link rel="icon" type="image/x-icon" href="https://cdn2.steamgriddb.com/file/sgdb-cdn/icon/7463afe23eae7efe3c72737a5d3d693f.ico">
+</head>
+  
+
+
+<!--navigation bar  -->
+<body id=nav>        
+        <div class="navbar">
+            <p>FH5 Companion</p>
+            <a href="home.html">HOME</a>
+            <a class="active" href="index.html">CARS</a>
+            <a href="map.html">MAP</a>
+            <a href="home.html#home_about">ABOUT</a>
+        </div>
+</body>
+
+
+  
+<!--filters side bar-->
+<body>
+    <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" class="bartitle" onclick="closeNav()">&times;</a>
+         
+        <a class="filtertitle">Filters</a>
+      
+         <!--dropdown for Model Type--> 
+        <div class="dropdown">
+              <button class="dropbtn">Type</button>
+              <div class="dropdown-content">
+                  <a class="btn" onclick="showFilteredModelType('UNLIMITED BUGGIES');"> Buggies </a>
+                  <a class="btn" onclick="showFilteredModelType('CLASSIC RALLY');" > Classic Rally </a>
+                  <a class="btn" onclick="showFilteredModelType('CLASSIC SPORTS CARS');"> Classic Sports Cars </a>
+                  <a class="btn" onclick="showFilteredModelType('EXTREME TRACK TOYS');"> Extreme Track Toys </a>
+                  <a class="btn" onclick="showFilteredModelType('HYPERCARS');"> Hypercars </a>
+                  <a class="btn" onclick="showFilteredModelType('MODERN SUPERCARS');"> Modern Supercars </a>
+                  <a class="btn" onclick="showFilteredModelType('RARE CLASSICS');"> Rare Classics </a>
+                  <a class="btn" onclick="showFilteredModelType('RETRO HOT HATCH');"> Retro hot hatch </a>
+              </div> 
+        </div>
+      
+        <!--dropdown for Class-->
+        <div class="dropdown">
+            <button class="dropbtn">CLASS</button>
+            <div class="dropdown-content">
+                  <a class="btn" onclick="showFilteredClass('D');"> D </a>
+                  <a class="btn" onclick="showFilteredClass('C');"> C </a>
+                  <a class="btn" onclick="showFilteredClass('B');"> B </a>
+                  <a class="btn" onclick="showFilteredClass('A');"> A </a>
+                  <a class="btn" onclick="showFilteredClass('S1');"> S1 </a>
+            </div> 
+        </div>
+      
+        <!--dropdown for Drive Type-->
+        <div class="dropdown">
+              <button class="dropbtn">DRIVE TYPE</button>
+              <div class="dropdown-content">
+                  <a class="btn" onclick="showFilteredDriveType('RWD');"> RWD </a>
+                  <a class="btn" onclick="showFilteredDriveType('FWD');"> FWD </a>
+                  <a class="btn" onclick="showFilteredDriveType('AWD');"> AWD </a>
+              </div> 
+        </div>
+      
+        <!--Button to show all cars-->
+        <div class="dropdown">
+           <button class="dropbtn" onclick="showAllCards();">Show all</button>   
+        </div>
+      
+    </div>
+  
+    <span style="font-size:30px;cursor:pointer;margin-left:30px;margin-top:100px;position: fixed" onclick="openNav()">&#9776;        
+    </span>
+  
+    <div id="main">
+          <div>    
+              <input type="text" id="mySearch" placeholder="Search by car names..." title="">
+              <button id="carSearchbtn" onclick=showSearch()>Search</a>
+          </div>
+          <!--car list--> 
+          <section id= "cards"></section>
+    
+          <body>
+                <script src="script.js"></script>
+          
+                <script>
+                      let cards = [];
+                      function rowTemplate({Car_Image,Name_and_Model,Model_Type,Cost, Stock_Specs, Drive_Type}){
+                      return `
+                            <div class="card">
+                              <img src="${Car_Image}" style="width:100%">
+                              <div class="container">
+                                  <h4><b>Name: ${Name_and_Model}</b></h4>
+                                  <pstyle="font-size: 0.875em">Type: ${Model_Type}</p>
+    <p>Cost: ${Cost}</p>
+    <p> Class: ${Stock_Specs}</p>
+    <p>Drive Type: ${Drive_Type}</p>                                                                                   
+                              </div>
+                              </div>`;
+                      }
+          
+                      async function showAllCards(){
+                        let data = await Lib.getData('ForzaAPI.txt');
+                        console.log(data);
+                        data = data.data.slice(0,100);
+                        Lib.renderCollection(data, rowTemplate, '#cards');
+                      }
+          
+                      showAllCards();
+
+                      async function showFilteredModelType(series){
+                        let data = await Lib.getData('ForzaAPI.txt');
+                        data = data.data.slice(0, 100); // gets the first 100 items of the array
+                        Lib.renderFilteredModelType(data, rowTemplate, '#cards',series);
+                      }    
+                  
+                      async function showFilteredClass(series){
+                        let data = await Lib.getData('ForzaAPI.txt');
+                        data = data.data.slice(0, 100); // gets the first 100 items of the array
+                        Lib.renderFilteredClass(data, rowTemplate, '#cards',series);
+                      }   
+                  
+                      async function showFilteredDriveType(series){
+                        let data = await Lib.getData('ForzaAPI.txt');
+                        data = data.data.slice(0, 100); // gets the first 100 items of the array
+                        Lib.renderFilteredDriveType(data, rowTemplate, '#cards',series);
+                      }       
+
+                      async function showSearch(){
+                        let searchKey = document.querySelector('#mySearch').value;
+                        console.log('searching', searchKey);
+                        let data = await Lib.getData('ForzaAPI.txt');
+                        data = data.data.slice(0, 100); // gets the first 100 items of the array
+                        Lib.renderFilteredSearch(data, rowTemplate, '#cards',searchKey);
+                      }       
+                  
+                  
+                </script>
+          </body>
+      
+    </div>
+
+    <script>
+            function openNav() {
+            document.getElementById("mySidenav").style.width = "250px";
+            document.getElementById("main").style.marginLeft = "250px";
+            }
+
+            function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+            document.getElementById("main").style.marginLeft= "0";
+            }
+    </script>
+
+  <div class=footer>
+    <p>FH5 Companion</p>
+    <p>©Copyright. All rights reserved.</p>
+  </div>
+ 
+
+
+  
+
+</html>
