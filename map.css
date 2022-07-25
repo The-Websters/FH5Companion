@@ -1,0 +1,102 @@
+/*navigation bar*/
+#nav {
+  margin:0;
+}
+
+@font-face { font-family: bebas neue; src: url('BebasNeue-Regular.ttf'); }
+
+.navbar {
+  display: flex;
+  justify-content: flex-end; 
+  padding: 25px;
+  background-color: #19191f;
+  top: 0; 
+  width: 100%;
+}
+
+.navbar p {
+  font-family: bebas neue;
+  font-size: 40px;
+  color: white;
+  margin: 0px;
+  padding-right:60vw;
+}
+
+.navbar a {
+  color: white;
+  font-family: bebas neue;
+  font-size: 17px;
+  text-decoration: none;
+  text-align: center;
+  padding: 14px;
+}
+
+.navbar a {
+   margin-right: 25px; 
+}
+
+.navbar a:hover {
+  background-color: #ffb812;
+  color: black;
+  border-radius: 4px;
+  padding: 14px;
+  cursor: pointer;
+  transition: all 200ms ease-in;
+}
+
+.navbar a.active {
+  background-color: #c5168d;
+  color: white;
+  border-radius: 4px;
+  padding: 14px;
+}
+
+.navbar a.active:hover {
+background-color: #d147a5;
+color: white;
+border-radius: 4px;
+padding: 14px;
+}
+
+/*map*/
+.mapwebsite {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  padding-top: 56.25%;
+}
+
+.responsive-iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  margin-top: 80px;
+  margin-left: 70px;
+  width: 90%;
+  height: 80%;
+}
+
+#map_descrip {
+  font-family: bebas neue;
+  font-size: 30px;
+  text-align: center;
+  margin: 80px 80px 0px 80px;
+}
+
+/*footer  */
+.footer {
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #19191f;
+  color: white;
+  font-family: bebas neue;
+  text-align: center;
+  padding: 40px 40px 40px 10px;
+}
+
+.footer p {
+  margin: 5px;
+}

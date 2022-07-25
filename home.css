@@ -1,0 +1,241 @@
+html {
+  scroll-behavior: smooth;
+}
+
+/*navigation bar*/
+#nav {
+  margin:0;
+}
+
+@font-face { font-family: bebas neue; src: url('BebasNeue-Regular.ttf'); }
+@font-face { font-family: montserrat; src: url('Montserrat-Light.otf'); }
+
+.navbar {
+  display: flex;
+  justify-content: flex-end; 
+  padding: 25px;
+  background-color: #19191f;
+  position: absolute;
+  top: 0; 
+  width: 100%;
+}
+
+.navbar p {
+  font-family: bebas neue;
+  font-size: 40px;
+  color: white;
+  margin: 0px;
+  padding-right:60vw;
+}
+
+.navbar a {
+  color: white;
+  font-family: bebas neue;
+  font-size: 17px;
+  text-decoration: none;
+  text-align: center;
+  padding: 14px;
+  margin-right: 25px; 
+}
+
+.navbar a:hover {
+  background-color: #ffb812;
+  color: black;
+  border-radius: 4px;
+  padding: 14px;
+  cursor: pointer;
+  transition: all 200ms ease-in;
+}
+
+.navbar a.active {
+  background-color: #c5168d;
+  color: white;
+  border-radius: 4px;
+  padding: 14px;
+}
+
+.navbar a.active:hover {
+background-color: #d147a5;
+color: white;
+border-radius: 4px;
+padding: 14px;
+}
+
+
+
+/*intro*/
+video {
+  max-width: 100%;
+}
+
+#video {
+  flex-basis: 140%;
+  
+}
+
+#home_intro {
+  margin-top: 98px;
+  padding-bottom: 200px;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#home_intro_text {
+  left: 0;
+  position:absolute;
+  background: rgba(0, 0, 0, 0.5);
+  padding-left: 30px;
+  padding-right: 10px;
+  padding-top: 120px;
+  height: 643px;
+  color: white;
+}
+
+#home_intro h1 {
+  font-family: bebas neue;
+  font-size: 100px;
+  margin-bottom: 0px;
+  vertical-align: middle;
+}
+
+#home_intro p {
+  font-family: montserrat;
+  font-size: 30px;
+  margin: 0px;
+}
+
+
+
+/*search section*/
+img {
+  max-width: 100%;
+}
+
+.car_image {
+  flex-basis: 140%;
+}
+
+#home_search {
+  margin-top: 30px;
+  padding: 100px 45px 200px 45px;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#home_search h1 {
+  font-family: bebas neue;
+  font-size: 70px;
+  margin: 0px;
+  padding-left: 20px;
+}
+
+#home_search p {
+  font-family: montserrat;
+  font-size: 30px;
+  margin: 0px;
+  padding-left: 20px;
+}
+
+#try_now {
+  background-color: #c5168d;
+  color: white;
+  font-family: bebas neue;
+  font-size: 20px;
+  width: 150px;
+  border: none;
+  border-radius: 4px;
+  margin: 20px 10px 0px 20px;
+  padding: 14px;
+  display:inline-block;
+  transition: all 200ms ease-in;
+}
+
+#try_now:hover {
+  background-color: #d147a5;
+}
+
+
+/*map section*/
+#home_map {
+  margin-top: 0px;
+  padding: 100px 45px 200px 45px;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: right;
+}
+
+#home_map h1 {
+  font-family: bebas neue;
+  font-size: 70px;
+  margin-bottom: 0px;
+  margin-top: 0px;
+  padding-right: 20px;
+}
+
+#home_map p {
+  font-family: montserrat;
+  font-size: 30px;
+  margin: 0px;
+  padding-right: 20px;
+}
+
+#explore_now {
+  background-color: #c5168d;
+  color: white;
+  font-family: bebas neue;
+  font-size: 20px;
+  width: 150px;
+  padding: 14px;
+  border: none;
+  border-radius: 4px;
+  margin: 20px 20px 0px 5px;
+  transition: all 200ms ease-in;
+}
+
+#explore_now:hover {
+  background-color: #d147a5;
+}
+
+
+/*about section*/
+#home_about {
+  margin-top: 0px;
+  padding: 70px 130px 200px 130px;
+  background-color: white;
+  text-align:center;
+}
+
+#home_about h1 {
+  font-family: bebas neue;
+  font-size: 70px;
+  margin-bottom: 0px;
+}
+
+#home_about p {
+  font-family: montserrat;
+  font-size: 30px;
+  margin: 0px;
+}
+
+
+/*footer  */
+.footer {
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #19191f;
+  color: white;
+  font-family: bebas neue;
+  text-align: center;
+  padding: 40px 40px 40px 10px;
+}
+
+.footer p {
+  margin: 5px;
+}
